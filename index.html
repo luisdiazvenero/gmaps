@@ -4,11 +4,17 @@
     <meta charset="utf-8">
     <title>gMaps & Geolocalización</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style media="screen">
+      #map {
+        height: 400px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col-8">
+          <input type="text" class="form-control" id="search-place" placeholder="Buscar lugar">
           <div id="map">
 
           </div>
