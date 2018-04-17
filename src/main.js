@@ -63,7 +63,12 @@ function calculateDistance(place, origen){
     travelMode: google.maps.TravelMode.DRIVING
   },(respuesta,status)=>{
     // se ejecuta cuando el servicio de distacia de maps nos responde
-    const distancia = respuesta.rows[0].elements[0];
-    console.log(distancia);
+    const info = respuesta.rows[0].elements[0];
+
+    const distancia = info.distance.text;
+    const duracion = info.duration.text;
+
+
+    document.getElementById("info").innerHTML = `Estas a ${distancia} y ${duracion} de dicho destino`;
   })
 }
