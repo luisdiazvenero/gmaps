@@ -1,9 +1,23 @@
 const nombre = "Luis";
+var travelMode;
 
 google.maps.event.addDomListener(window,"load",()=>{
   const user_location = new UserLocation(()=>{
     //console.log("ya tenemos la localizacion yeee");
     //console.log(user_location);
+
+    // Aqui ya se cargaron los mapas y ademas cargamos geolocalizacion
+    travelMode = document.getElementById('travel-mode').value;
+
+    if(travelMode == "0"){
+      document.getElementById('travel-mode').addEventListener("change", (ev)=> {
+        document.getElementById('travel-screen').style.display = "none";
+        travelMode = ev.target.value;
+      })
+    } else {
+      document.getElementById('travel-screen').style.display = "none";
+    }
+
 
     const mapOptions = {
         zoom: 14,
@@ -60,7 +74,7 @@ function calculateDistance(place, origen){
   service.getDistanceMatrix({
     origins: [origin],
     destinations: [place.geometry.location],
-    travelMode: google.maps.TravelMode.DRIVING
+    travelMode: travelMode
   },(respuesta,status)=>{
     // se ejecuta cuando el servicio de distacia de maps nos responde
     const info = respuesta.rows[0].elements[0];
